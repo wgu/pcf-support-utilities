@@ -50,23 +50,23 @@ mkdir -p $OUTPUT_DIR
 
 # Run Bosh commands
 echo "Fetching Bosh status..."
-bosh status > $OUTPUT_DIR/status.log
+bosh status > $OUTPUT_DIR/status.log 2>&1
 echo "Fetching releases..."
-bosh releases > $OUTPUT_DIR/releases.log
+bosh releases > $OUTPUT_DIR/releases.log 2>&1
 echo "Fetching stemcells..."
-bosh stemcells > $OUTPUT_DIR/stemcells.log
+bosh stemcells > $OUTPUT_DIR/stemcells.log 2>&1
 echo "Fetching available deployments..."
-bosh deployments | tee $OUTPUT_DIR/deployments.log
+bosh deployments 2>$OUTPUT_DIR/deployments.log | tee $OUTPUT_DIR/deployments.log
 
 read -p "Select deployment: " DEPLOYMENT
 DEPLOYMENT_YAML=$OUTPUT_DIR/$DEPLOYMENT.yml
 if [[ -n $DEPLOYMENT ]]; then
-  bosh download manifest $DEPLOYMENT $DEPLOYMENT_YAML
+  bosh download manifest $DEPLOYMENT $DEPLOYMENT_YAML > $OUTPUT_DIR/download_manifest.log 2>&1
   while [[ $? != 0 ]]; do
     echo "Wrong deployment: $DEPLOYMENT"
     read -p "Select deployment: " DEPLOYMENT
     if [[ -n $DEPLOYMENT ]]; then
-      bosh download manifest $DEPLOYMENT $DEPLOYMENT_YAML
+      bosh download manifest $DEPLOYMENT $DEPLOYMENT_YAML > $OUTPUT_DIR/download_manifest.log 2>&1
     fi
   done
 else
@@ -75,11 +75,11 @@ fi
 
 if [[ -s $DEPLOYMENT_YAML ]]; then
   echo "Setting deployment..."
-  bosh deployment $DEPLOYMENT_YAML
+  bosh deployment $DEPLOYMENT_YAML > $OUTPUT_DIR/deployment.log 2>&1
   echo "Fetching process information..."
   bosh instances --ps > $OUTPUT_DIR/instances.ps.log 2>&1
   echo "Fetching instance details..."
-  bosh instances --details | tee $OUTPUT_DIR/instances.details.log 2>&1
+  bosh instances --details 2>$OUTPUT_DIR/instances.details.log | tee $OUTPUT_DIR/instances.details.log 2>&1
   read -p "Select job: " JOB
   if [[ -n $JOB ]]; then
     read -p "Select index: " JOB_INDEX
@@ -87,14 +87,14 @@ if [[ -s $DEPLOYMENT_YAML ]]; then
       read -p "Select index: " JOB_INDEX
     done
     echo "Fetching job logs..."
-    bosh logs $JOB $JOB_INDEX --dir $OUTPUT_DIR > $OUTPUT_DIR/$JOB.$JOB_INDEX.log
+    bosh logs $JOB $JOB_INDEX --dir $OUTPUT_DIR > $OUTPUT_DIR/$JOB.$JOB_INDEX.log 2>&1
   else
     echo "Skipped fetching job logs."
   fi
 fi
 
 echo "Fetching 100 most recent bosh task records..."
-bosh tasks recent 100 --no-filter > $OUTPUT_DIR/tasks.log
+bosh tasks recent 100 --no-filter > $OUTPUT_DIR/tasks.log 2>&1
 read -p "Task ID: " TASK_ID
 if [[ -n $TASK_ID ]]; then
   echo "Fetching task debug log..."
@@ -112,3 +112,5 @@ echo "Packaging logs..."
 tar czf $OUTPUT_DIR.tgz $OUTPUT_DIR
 
 # Upload
+
+echo "Done."
