@@ -88,8 +88,8 @@ fi
 
 bosh tasks recent 100 --no-filter > $OUTPUT_DIR/tasks.log
 read -p "Task ID: " TASK_ID
-if [[ -n TASK_ID ]]; then
-  bosh task $TASK_ID --debug > $OUTPUT_DIR/task.$TASK_ID.debug.log
+if [[ -n $TASK_ID ]]; then
+  bosh task $TASK_ID --debug > $OUTPUT_DIR/task.$TASK_ID.debug.log 2>&1
   bosh task $TASK_ID --event > $OUTPUT_DIR/task.$TASK_ID.event.log 2>&1
   bosh task $TASK_ID --cpi > $OUTPUT_DIR/task.$TASK_ID.cpi.log 2>&1
 else
