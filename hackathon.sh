@@ -38,8 +38,9 @@ while [[ $# > 1 ]]; do
 done
 
 if [[ -z $TARGET ]]; then
-  echo "Error: Missing bosh target"
-  exit 1
+  # echo "Error: Missing bosh target"
+  # exit 1
+  read -p "Target: " TARGET
 fi
 
 # Login
