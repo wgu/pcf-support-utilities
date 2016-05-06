@@ -1,5 +1,5 @@
 #!/bin/bash
-OUTPUT_DIR="bosh_logs_`date +%Y%m%d%H%M%S`"
+OUTPUT_DIR="pcf_support_`date +%Y%m%d%H%M%S`"
 
 if !command -v bosh > /dev/null 2>&1; then
   echo "Error: bosh command not found"
@@ -49,10 +49,13 @@ bosh login $USERNAME $PASSWORD
 mkdir -p $OUTPUT_DIR
 
 # Run Bosh commands
+echo "Fetching Bosh status..."
 bosh status > $OUTPUT_DIR/status.log
+echo "Fetching releases..."
 bosh releases > $OUTPUT_DIR/releases.log
+echo "Fetching stemcells..."
 bosh stemcells > $OUTPUT_DIR/stemcells.log
-echo "Available deployments:"
+echo "Fetching available deployments..."
 bosh deployments | tee $OUTPUT_DIR/deployments.log
 
 read -p "Select deployment: " DEPLOYMENT
@@ -71,8 +74,11 @@ else
 fi
 
 if [[ -s $DEPLOYMENT_YAML ]]; then
+  echo "Setting deployment..."
   bosh deployment $DEPLOYMENT_YAML
+  echo "Fetching process information..."
   bosh instances --ps > $OUTPUT_DIR/instances.ps.log 2>&1
+  echo "Fetching instance details..."
   bosh instances --details | tee $OUTPUT_DIR/instances.details.log 2>&1
   read -p "Select job: " JOB
   if [[ -n $JOB ]]; then
@@ -80,23 +86,29 @@ if [[ -s $DEPLOYMENT_YAML ]]; then
     while [[ -z $JOB_INDEX ]]; do
       read -p "Select index: " JOB_INDEX
     done
+    echo "Fetching job logs..."
     bosh logs $JOB $JOB_INDEX --dir $OUTPUT_DIR > $OUTPUT_DIR/$JOB.$JOB_INDEX.log
   else
     echo "Skipped fetching job logs."
   fi
 fi
 
+echo "Fetching 100 most recent bosh task records..."
 bosh tasks recent 100 --no-filter > $OUTPUT_DIR/tasks.log
 read -p "Task ID: " TASK_ID
 if [[ -n $TASK_ID ]]; then
+  echo "Fetching task debug log..."
   bosh task $TASK_ID --debug > $OUTPUT_DIR/task.$TASK_ID.debug.log 2>&1
+  echo "Fetching task event log..."
   bosh task $TASK_ID --event > $OUTPUT_DIR/task.$TASK_ID.event.log 2>&1
+  echo "Fetching task cpi log..."
   bosh task $TASK_ID --cpi > $OUTPUT_DIR/task.$TASK_ID.cpi.log 2>&1
 else
   echo "Skipped fetching task logs."
 fi
 
 # Package into a tarball
+echo "Packaging logs..."
 tar czf $OUTPUT_DIR.tgz $OUTPUT_DIR
 
 # Upload
