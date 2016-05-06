@@ -52,7 +52,11 @@ mkdir -p $OUTPUT_DIR
 bosh status > $OUTPUT_DIR/status.log
 bosh releases > $OUTPUT_DIR/releases.log
 bosh stemcells > $OUTPUT_DIR/stemcells.log
-bosh deployments > $OUTPUT_DIR/deployments.log
+echo "Available deployments:"
+bosh deployments | tee $OUTPUT_DIR/deployments.log
+read -p "Select deployment: " DEPLOYMENT
+bosh download manifest $DEPLOYMENT $OUTPUT_DIR/$DEPLOYMENT.yml
+bosh deployment $OUTPUT_DIR/$DEPLOYMENT.yml
 
 # bosh instances —-details > $OUTPUT_DIR/instances.details.log
 # bosh instances —ps > $OUTPUT_DIR/instances.ps.log
