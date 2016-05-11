@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 OUTPUT_DIR="pcf_support_`date +%Y%m%d%H%M%S`"
 
 if [[ -z $BOSH_CMD ]]; then
@@ -46,14 +44,27 @@ while [[ $# > 1 ]]; do
 done
 
 if [[ -z $TARGET ]]; then
-  # echo "Error: Missing $BOSH_CMD target"
-  # exit 1
-  read -p "Target: " TARGET
+  if $BOSH_CMD targets && $BOSH_CMD target; then
+    read -r -n 1 -p "Use this target? [Yn] "
+    echo
+    if [[ -z $REPLY || $REPLY =~ ^[Yy]$ ]]; then
+      SKIP_LOGIN=true
+    fi
+  fi
+  if [[ -z $SKIP_LOGIN ]]; then
+    while [[ -z $TARGET ]]; do
+      read -p "Target: " TARGET
+    done
+  fi
 fi
 
+set -e
+
 # Login
-$BOSH_CMD target $TARGET
-$BOSH_CMD login $USERNAME $PASSWORD
+if [[ -n $TARGET ]]; then
+  $BOSH_CMD target $TARGET
+  $BOSH_CMD login $USERNAME $PASSWORD
+fi
 
 mkdir -p $OUTPUT_DIR
 
