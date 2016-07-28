@@ -50,7 +50,7 @@ function list_and_target_deployment
   $BOSH deployment $WORK_DIR/$BOSH_DEPLOYMENT.yml
 }
 
-$UAAC_CURL/diagnostic_report > $OUTPUT_DIR/diagnostic_report.log 2>&1
+$UAAC_CURL/diagnostic_report > $OUTPUT_DIR/diagnostic_report.log
 
 while [ true ]
 do
