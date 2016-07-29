@@ -111,6 +111,7 @@ do
       $BOSH logs $JOB $JOB_INDEX --dir $OUTPUT_DIR
       ;;
     "x")
+      tar czf $OUTPUT_DIR.tgz $OUTPUT_DIR
       exit 0
   esac
   echo "Finshed."
