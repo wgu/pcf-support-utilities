@@ -1,7 +1,5 @@
 # PCF Support Utilites
 
-Tools for support report aggregation
-
 ## PCF Report Aggregator
 
 Currently supported reports to be collected automatically:
