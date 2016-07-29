@@ -75,6 +75,10 @@ do
       ;;
     "3")
       read -p "Task ID: " TASK_ID
+      while [[ -z $TASK_ID ]]
+      do
+        read -p "Task ID: " TASK_ID
+      done
       setup_bosh
       $BOSH task $TASK_ID --event > $OUTPUT_DIR/bosh_task_"$TASK_ID"_event.log
       $BOSH task $TASK_ID --cpi > $OUTPUT_DIR/bosh_task_"$TASK_ID"_cpi.log
@@ -109,6 +113,6 @@ do
     "x")
       exit 0
   esac
-  echo "Done."
+  echo "Finshed."
 done
 
