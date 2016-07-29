@@ -112,6 +112,7 @@ do
       ;;
     "x")
       tar czf $OUTPUT_DIR.tgz $OUTPUT_DIR
+      echo "All reports have been packaged into $OUTPUT_DIR.tgz."
       exit 0
   esac
   echo "Finshed."

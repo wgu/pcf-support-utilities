@@ -13,7 +13,7 @@ Currently supported reports to be collected automatically:
 
 ### Prerequisities
 
-Run in Pivotal Cloud Foundry Operations Manager. Currently compatible with version 1.7+.
+Run in Pivotal Cloud Foundry Operations Manager only. Currently compatible with version 1.7+.
 
 You need to have your admin credentials for Ops Manager in order to run the aggregator. No other credentials/information needed.
 
