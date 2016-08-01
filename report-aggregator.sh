@@ -12,16 +12,16 @@ UAAC="eval BUNDLE_GEMFILE=/home/tempest-web/tempest/web/vendor/uaac/Gemfile bund
 
 #echo "Please enter https://OPSMAN_ADDR"
 #read -p "OpsMan URL: " OPSMAN
-OPSMAN_HOSTNAME=$(sudo -u postgres psql -t -d tempest_production -c "SELECT hostname FROM uaa_configs WHERE id=1" | tr -d "\ ")
+#OPSMAN_HOSTNAME=$(sudo -u postgres psql -t -d tempest_production -c "SELECT hostname FROM uaa_configs WHERE id=1" | tr -d "\ ")
 
-$UAAC target https://$OPSMAN_HOSTNAME/uaa --skip-ssl-validation
+$UAAC target https://localhost/uaa --skip-ssl-validation
 
 $UAAC token owner get opsman -s \"\"
 
 mkdir -p $OUTPUT_DIR
 echo "All information fetched will be put in $OUTPUT_DIR."
 
-OPAMAN_API="https://$OPSMAN_HOSTNAME/api/v0"
+OPAMAN_API="https://localhost/api/v0"
 UAAC_CURL="$UAAC curl -k $OPAMAN_API"
 BOSH_TARGET=""
 BOSH_CMD=""

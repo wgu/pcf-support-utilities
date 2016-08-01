@@ -1,0 +1,149 @@
+Connected, tailing logs for app console in org system / space system as admin...
+
+2016-07-28T16:22:58.02-0700 [RTR/0]      OUT apps.system.stout.mini.pez.pivotal.io - [28/07/2016:23:22:58.016 +0000] "GET / HTTP/1.1" 302 0 256 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36" 10.64.54.253:33558 x_forwarded_for:"10.81.130.215, 10.64.54.253" x_forwarded_proto:"https" vcap_request_id:c459a772-8026-4ec9-4fd7-720d1d0dc4b8 response_time:0.01057258 app_id:3e0e4f51-0437-4108-8f0c-8cb264f8bef2
+2016-07-28T16:22:58.04-0700 [APP/0]      OUT [ff89bd84-6afc-42f9-946c-8f557acc5639] [10.64.54.17] Started GET "/" for 10.64.54.17 at 2016-07-28 23:22:58 +0000
+2016-07-28T16:22:58.04-0700 [APP/0]      OUT [ff89bd84-6afc-42f9-946c-8f557acc5639] [10.64.54.17] Processing by HomeController#show as HTML
+2016-07-28T16:22:58.04-0700 [APP/0]      OUT [ff89bd84-6afc-42f9-946c-8f557acc5639] [10.64.54.17] Redirected to https://login.system.stout.mini.pez.pivotal.io/oauth/authorize?response_type=code&client_id=portal&redirect_uri=https%3A%2F%2Fapps.system.stout.mini.pez.pivotal.io%2Foauth%2Fcallback
+2016-07-28T16:22:58.04-0700 [APP/0]      OUT [ff89bd84-6afc-42f9-946c-8f557acc5639] [10.64.54.17] Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+2016-07-28T16:22:58.15-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17] Started GET "/oauth/callback?code=oKIGFG" for 10.64.54.17 at 2016-07-28 23:22:58 +0000
+2016-07-28T16:22:58.15-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17] Processing by OauthController#callback as HTML
+2016-07-28T16:22:58.15-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Parameters: {"code"=>"oKIGFG"}
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]           Exception caught via rescue_from (code 500):
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT           (See app/controllers/error_handling.rb)
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT           Faraday::Error::ConnectionFailed: Failed to open TCP connection to 142.23.321.12:8080 (getaddrinfo: Name or service not known)
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT           /home/vcap/app/vendor/ruby-2.3.0/lib/ruby/2.3.0/net/http.rb:882:in `rescue in block in connect'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/ruby-2.3.0/lib/ruby/2.3.0/net/http.rb:879:in `block in connect'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/ruby-2.3.0/lib/ruby/2.3.0/timeout.rb:91:in `block in timeout'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/ruby-2.3.0/lib/ruby/2.3.0/timeout.rb:101:in `timeout'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/ruby-2.3.0/lib/ruby/2.3.0/net/http.rb:878:in `connect'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/ruby-2.3.0/lib/ruby/2.3.0/net/http.rb:863:in `do_start'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/ruby-2.3.0/lib/ruby/2.3.0/net/http.rb:852:in `start'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/ruby-2.3.0/lib/ruby/2.3.0/net/http.rb:1398:in `request'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/http_logger-0.4.2/lib/http_logger.rb:188:in `block in request'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/http_logger-0.4.2/lib/http_logger.rb:51:in `perform'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/http_logger-0.4.2/lib/http_logger.rb:38:in `perform'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/http_logger-0.4.2/lib/http_logger.rb:187:in `request'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/faraday-0.8.8/lib/faraday/adapter/net_http.rb:75:in `perform_request'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/faraday-0.8.8/lib/faraday/adapter/net_http.rb:38:in `call'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/faraday-0.8.8/lib/faraday/request/url_encoded.rb:14:in `call'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/app/models/portal_oauth_client.rb:8:in `fetch_access_token'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/faraday-0.8.8/lib/faraday/connection.rb:253:in `run_request'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/oauth2-0.9.2/lib/oauth2/client.rb:90:in `request'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/oauth2-0.9.2/lib/oauth2/client.rb:134:in `get_token'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/oauth2-0.9.2/lib/oauth2/strategy/auth_code.rb:29:in `get_token'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/app/controllers/oauth_controller.rb:10:in `callback'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/abstract_controller/base.rb:198:in `process_action'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_controller/metal/rendering.rb:10:in `process_action'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/callbacks.rb:117:in `call'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/callbacks.rb:505:in `call'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+2016-07-28T16:22:58.16-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/callbacks.rb:81:in `run_callbacks'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/abstract_controller/callbacks.rb:19:in `process_action'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_controller/metal/rescue.rb:29:in `process_action'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/notifications.rb:164:in `block in instrument'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/notifications.rb:164:in `instrument'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activerecord-4.2.5.1/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/abstract_controller/base.rb:137:in `process'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionview-4.2.5.1/lib/action_view/rendering.rb:30:in `process'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_controller/metal.rb:196:in `dispatch'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_controller/metal.rb:237:in `block in action'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/routing/route_set.rb:43:in `serve'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/journey/router.rb:43:in `block in serve'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/journey/router.rb:30:in `each'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/journey/router.rb:30:in `serve'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/routing/route_set.rb:815:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/rack-1.6.4/lib/rack/conditionalget.rb:25:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/rack-1.6.4/lib/rack/head.rb:13:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/flash.rb:260:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/rack-1.6.4/lib/rack/session/abstract/id.rb:225:in `context'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/rack-1.6.4/lib/rack/session/abstract/id.rb:220:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/cookies.rb:560:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activerecord-4.2.5.1/lib/active_record/query_cache.rb:36:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activerecord-4.2.5.1/lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/callbacks.rb:81:in `run_callbacks'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/railties-4.2.5.1/lib/rails/rack/logger.rb:38:in `call_app'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/railties-4.2.5.1/lib/rails/rack/logger.rb:20:in `block in call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/tagged_logging.rb:26:in `tagged'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/activesupport-4.2.5.1/lib/active_support/tagged_logging.rb:68:in `tagged'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/railties-4.2.5.1/lib/rails/rack/logger.rb:20:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/rack-1.6.4/lib/rack/methodoverride.rb:22:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/rack-1.6.4/lib/rack/runtime.rb:18:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/static.rb:116:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/rack-1.6.4/lib/rack/sendfile.rb:113:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/ssl.rb:24:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/railties-4.2.5.1/lib/rails/engine.rb:518:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/railties-4.2.5.1/lib/rails/application.rb:165:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/thin-1.6.2/lib/thin/connection.rb:86:in `block in pre_process'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/thin-1.6.2/lib/thin/connection.rb:84:in `catch'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/thin-1.6.2/lib/thin/connection.rb:84:in `pre_process'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/thin-1.6.2/lib/thin/connection.rb:53:in `process'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/thin-1.6.2/lib/thin/connection.rb:39:in `receive_data'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/eventmachine-1.0.9.1/lib/eventmachine.rb:193:in `run_machine'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/eventmachine-1.0.9.1/lib/eventmachine.rb:193:in `run'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/thin-1.6.2/lib/thin/backends/base.rb:73:in `start'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/thin-1.6.2/lib/thin/server.rb:162:in `start'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/rack-1.6.4/lib/rack/handler/thin.rb:19:in `run'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/railties-4.2.5.1/lib/rails/commands/server.rb:80:in `start'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/railties-4.2.5.1/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/railties-4.2.5.1/lib/rails/commands/commands_tasks.rb:75:in `tap'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/railties-4.2.5.1/lib/rails/commands/commands_tasks.rb:75:in `server'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/railties-4.2.5.1/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT /home/vcap/app/vendor/bundle/ruby/2.3.0/gems/railties-4.2.5.1/lib/rails/commands.rb:17:in `<top (required)>'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT script/rails:6:in `require'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT script/rails:6:in `<main>'
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered errors/_contact_info_for_500_error.html.haml (0.2ms)
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered errors/500.html.haml within layouts/application (1.0ms)
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_whitelabel.html.haml (0.4ms)
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_favicon_link_tag.html.haml (0.4ms)
+2016-07-28T16:22:58.17-0700 [RTR/0]      OUT apps.system.stout.mini.pez.pivotal.io - [28/07/2016:23:22:58.130 +0000] "GET /oauth/callback?code=oKIGFG HTTP/1.1" 500 0 8617 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36" 10.64.54.253:33558 x_forwarded_for:"10.81.130.215, 10.64.54.253" x_forwarded_proto:"https" vcap_request_id:22d56ef6-d4d1-404d-6f8c-a3abce6c1f13 response_time:0.042882426 app_id:3e0e4f51-0437-4108-8f0c-8cb264f8bef2
+2016-07-28T16:22:58.17-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_global_wrapper_header.html.haml (0.3ms)
+2016-07-28T16:22:58.18-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_logo.html.haml (0.4ms)
+2016-07-28T16:22:58.18-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_navbar_logged_out.html.haml (10.4ms)
+2016-07-28T16:22:58.18-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_navbar.html.haml (11.3ms)
+2016-07-28T16:22:58.18-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_breadcrumbs.html.haml (0.1ms)
+2016-07-28T16:22:58.18-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_header_logged_out.html.haml (0.4ms)
+2016-07-28T16:22:58.18-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_header.html.haml (1.1ms)
+2016-07-28T16:22:58.18-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_flash_message.html.haml (0.2ms)
+2016-07-28T16:22:58.18-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_flash_message_from_angular.html.haml (0.3ms)
+2016-07-28T16:22:58.18-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_footer_links.html.haml (0.2ms)
+2016-07-28T16:22:58.18-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_footer.html.haml (0.7ms)
+2016-07-28T16:22:58.18-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_global_wrapper_footer.html.haml (0.2ms)
+2016-07-28T16:22:58.19-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_confirm_modal.html.haml (0.2ms)
+2016-07-28T16:22:58.19-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_confirm_with_text_modal.html.haml (0.1ms)
+2016-07-28T16:22:58.19-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_alert_modal.html.haml (0.1ms)
+2016-07-28T16:22:58.19-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17]   Rendered shared/_info_modal.html.haml (0.1ms)
+2016-07-28T16:22:58.19-0700 [APP/0]      OUT [e086456d-761c-48a6-9299-efecf5474ee6] [10.64.54.17] Completed 500 Internal Server Error in 36ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+2016-07-28T16:22:58.22-0700 [RTR/0]      OUT apps.system.stout.mini.pez.pivotal.io - [28/07/2016:23:22:58.209 +0000] "GET /assets/print-590f64799be21b1bf9a22f13b71c9e5e7cc4bc54b3e265733c3bd1c0ff108ec2.css HTTP/1.1" 200 0 172 "https://apps.system.stout.mini.pez.pivotal.io/oauth/callback?code=oKIGFG" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36" 10.64.54.253:33557 x_forwarded_for:"10.81.130.215, 10.64.54.253" x_forwarded_proto:"https" vcap_request_id:b93a1fd6-9efa-408c-5936-a96087e09c03 response_time:0.017136268 app_id:3e0e4f51-0437-4108-8f0c-8cb264f8bef2
+2016-07-28T16:22:58.22-0700 [RTR/0]      OUT apps.system.stout.mini.pez.pivotal.io - [28/07/2016:23:22:58.209 +0000] "GET /assets/application-2c5c4640d056c0f5ce5496a146d87f08c9aba8278753e87ecfa7d6c6e8e755db.css HTTP/1.1" 200 0 40629 "https://apps.system.stout.mini.pez.pivotal.io/oauth/callback?code=oKIGFG" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36" 10.64.54.253:33558 x_forwarded_for:"10.81.130.215, 10.64.54.253" x_forwarded_proto:"https" vcap_request_id:f484eaa0-8683-47bd-5c5c-7f8779833f9c response_time:0.018662446 app_id:3e0e4f51-0437-4108-8f0c-8cb264f8bef2
+2016-07-28T16:22:58.23-0700 [RTR/0]      OUT apps.system.stout.mini.pez.pivotal.io - [28/07/2016:23:22:58.210 +0000] "GET /assets/modernizr-8b7091beb8fd3aa14a538158cdeb7da245a35615123f6f04c90dca40cb7dcfe6.js HTTP/1.1" 200 0 4824 "https://apps.system.stout.mini.pez.pivotal.io/oauth/callback?code=oKIGFG" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36" 10.64.54.253:33556 x_forwarded_for:"10.81.130.215, 10.64.54.253" x_forwarded_proto:"https" vcap_request_id:099d29bd-21ec-44ef-58d7-2b9915c0331f response_time:0.017673783 app_id:3e0e4f51-0437-4108-8f0c-8cb264f8bef2
+2016-07-28T16:22:58.23-0700 [RTR/0]      OUT apps.system.stout.mini.pez.pivotal.io - [28/07/2016:23:22:58.210 +0000] "GET /assets/application-20fd4baaaacbc44a277cadeb7df83dd16cd2773761af1c674e9ed5d7b4d4a615.js HTTP/1.1" 200 0 136872 "https://apps.system.stout.mini.pez.pivotal.io/oauth/callback?code=oKIGFG" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36" 10.64.54.253:33519 x_forwarded_for:"10.81.130.215, 10.64.54.253" x_forwarded_proto:"https" vcap_request_id:2d984191-8763-4c69-45f3-745e6a8487b6 response_time:0.021751784 app_id:3e0e4f51-0437-4108-8f0c-8cb264f8bef2
+2016-07-28T16:22:58.39-0700 [RTR/0]      OUT apps.system.stout.mini.pez.pivotal.io - [28/07/2016:23:22:58.386 +0000] "GET /api/organizations/null/spaces HTTP/1.1" 401 0 0 "https://apps.system.stout.mini.pez.pivotal.io/oauth/callback?code=oKIGFG" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36" 10.64.54.253:33519 x_forwarded_for:"10.81.130.215, 10.64.54.253" x_forwarded_proto:"https" vcap_request_id:e5aeefce-5925-4a68-789a-77d38cc2499f response_time:0.009688913 app_id:3e0e4f51-0437-4108-8f0c-8cb264f8bef2
+2016-07-28T16:22:58.40-0700 [APP/0]      OUT [ca81e30f-11f9-4414-9806-3ab807c22152] [10.64.54.17] Started GET "/api/organizations/null/spaces" for 10.64.54.17 at 2016-07-28 23:22:58 +0000
+2016-07-28T16:22:58.41-0700 [APP/0]      OUT [ca81e30f-11f9-4414-9806-3ab807c22152] [10.64.54.17] Processing by Api::Organizations::SpacesController#index as JSON
+2016-07-28T16:22:58.41-0700 [APP/0]      OUT [ca81e30f-11f9-4414-9806-3ab807c22152] [10.64.54.17]   Parameters: {"organization_id"=>"null"}
+2016-07-28T16:22:58.41-0700 [APP/0]      OUT [ca81e30f-11f9-4414-9806-3ab807c22152] [10.64.54.17]   Rendered text template (0.0ms)
+2016-07-28T16:22:58.41-0700 [APP/0]      OUT [ca81e30f-11f9-4414-9806-3ab807c22152] [10.64.54.17] Filter chain halted as :require_user rendered or redirected
+2016-07-28T16:22:58.41-0700 [APP/0]      OUT [ca81e30f-11f9-4414-9806-3ab807c22152] [10.64.54.17] Completed 401 Unauthorized in 3ms (Views: 0.8ms | ActiveRecord: 0.0ms)
