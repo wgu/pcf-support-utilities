@@ -102,7 +102,7 @@ do
           list_and_target_deployment
         fi
       else
-        setup_bosh
+        list_and_target_deployment
       fi
       echo "Available jobs and indexes:"
       $BOSH instances | awk '/\// { print $2 }'
