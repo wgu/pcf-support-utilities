@@ -30,7 +30,7 @@ BOSH_DEPLOYMENT=""
 function setup_bosh
 {
   if [[ -z $BOSH_TARGET ]]; then
-    BOSH_PRODUCT=$($UAAC_CURL/deployed/products | grep "guid\": \"p-bosh-" | awk '{ print $2 }' | sed s/\"//g | sed s/,//g)
+    BOSH_PRODUCT=$($UAAC_CURL/deployed/products | grep -e "guid\": \"p-bosh-" -e "guid\": \"microbosh-" | awk '{ print $2 }' | sed s/\"//g | sed s/,//g)
     DIRECTOR_IP=$($UAAC_CURL/deployed/products/$BOSH_PRODUCT/static_ips | awk '/\"ips\"/, /[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/' | tail -n 1 | sed s/\"//g | sed s/,//g | sed s/\ //g)
     BOSH_TARGET="https://$DIRECTOR_IP:25555"
     export BOSH_CLIENT=ops_manager
