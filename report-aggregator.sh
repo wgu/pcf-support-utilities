@@ -16,6 +16,7 @@ UAAC="eval BUNDLE_GEMFILE=/home/tempest-web/tempest/web/vendor/uaac/Gemfile bund
 
 $UAAC target https://localhost/uaa --skip-ssl-validation
 
+echo "Please enter the admin username and password for Ops Manager."
 $UAAC token owner get opsman -s \"\"
 
 mkdir -p $OUTPUT_DIR
