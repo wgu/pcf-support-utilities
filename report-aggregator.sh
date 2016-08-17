@@ -61,6 +61,7 @@ do
 [4] BOSH deployments
 [5] BOSH instances
 [6] BOSH VM logs
+[7] BOSH recent tasks
 [x] Exit"
   read -p "Select: " ITEM
   case $ITEM in
@@ -109,6 +110,11 @@ do
       read -p "Enter job: " JOB
       read -p "Enter index: " JOB_INDEX
       $BOSH logs $JOB $JOB_INDEX --dir $OUTPUT_DIR
+      ;;
+    "7")
+      setup_bosh
+      read -p "How many tasks to list? " NUM_TASKS
+      $BOSH tasks recent $NUM_TASKS --no-filter > $OUTPUT_DIR/bosh_tasks_recent_$NUM_TASKS.log
       ;;
     "x")
       tar czf $OUTPUT_DIR.tgz $OUTPUT_DIR
